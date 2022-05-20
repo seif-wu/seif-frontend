@@ -5,6 +5,7 @@ import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrow
 import api from '../lib/core/api';
 import MySelfGithubCard from '../components/Index/MySelfGithubCard';
 import BlockI from '../components/BgBlock/BlockI';
+import Header from '../components/Header';
 
 const Home: NextPage = () => {
   const { data: githubUserRes } = useSWR('/api/github/user', api.get);
@@ -17,6 +18,7 @@ const Home: NextPage = () => {
     <>
       <Container maxWidth="xl" sx={{ py: 0 }}>
         <BlockI />
+        <Header />
         <Grid container spacing={3} sx={{ pt: 3, height: '100vh' }}>
           <Grid item xs={6} md={4} sx={{ height: '100%' }}>
             <MySelfGithubCard data={githubUserRes} />
