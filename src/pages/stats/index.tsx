@@ -11,7 +11,7 @@ const Stats = () => {
       <PageTitle title="一点小" primaryWord="统计" bgTitle="Stats" />
       <Grid container spacing={2} sx={{ px: 10 }}>
         <Grid item md={6} xs={12}>
-          <GithubTopLanguages fetchUrl="/api/github/languages" />
+          <GithubTopLanguages fetchUrl="/api/github/languages" top={5} />
         </Grid>
       </Grid>
     </Container>
