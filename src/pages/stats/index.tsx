@@ -1,14 +1,20 @@
-import { Box } from '@mui/material';
-import React from 'react';
+import { Box, Container, Grid } from '@mui/material';
+
 import Header from '../../components/Header';
 import PageTitle from '../../components/PageTitle';
+import GithubTopLanguages from '../../components/StatsCard/GithubTopLanguages';
 
 const Stats = () => {
   return (
-    <Box>
+    <Container maxWidth="xl" sx={{ py: 0 }}>
       <Header />
       <PageTitle title="一点小" primaryWord="统计" bgTitle="Stats" />
-    </Box>
+      <Grid container spacing={2} sx={{ px: 10 }}>
+        <Grid item md={6} xs={12}>
+          <GithubTopLanguages fetchUrl="/api/github/languages" />
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 
