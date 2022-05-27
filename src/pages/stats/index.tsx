@@ -3,6 +3,7 @@ import { Box, Container, Grid } from '@mui/material';
 import Header from '../../components/Header';
 import PageTitle from '../../components/PageTitle';
 import GithubTopLanguages from '../../components/StatsCard/GithubTopLanguages';
+import LeetCodeQuestionProgress from '../../components/StatsCard/LeetCodeQuestionProgress';
 
 const Stats = () => {
   return (
@@ -12,6 +13,9 @@ const Stats = () => {
       <Grid container spacing={2} sx={{ px: 10 }}>
         <Grid item md={6} xs={12}>
           <GithubTopLanguages fetchUrl="/api/github/languages" top={5} />
+        </Grid>
+        <Grid item md={6} xs={12}>
+          <LeetCodeQuestionProgress fetchUrl="/api/leetcode/question_progress" />
         </Grid>
       </Grid>
     </Container>
