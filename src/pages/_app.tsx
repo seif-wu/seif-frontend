@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
+import { v4 as uuidv4 } from 'uuid';
 import { SWRConfig } from 'swr';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -17,6 +18,14 @@ interface MyAppProps extends AppProps {
 
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+  const ISSERVER = typeof window === "undefined";
+  if (!ISSERVER) {
+    const XToken = window.localStorage.getItem('XToken');
+    if (!XToken) {
+      window.localStorage.setItem('XToken', uuidv4());
+    }
+  }
+
   return (
     <CacheProvider value={emotionCache}>
       <Head>
