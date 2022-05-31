@@ -3,13 +3,14 @@ import type { Key } from 'swr';
 import api from '../api';
 
 function useApiSWR(key: Key) {
-  const { data, error } = useSWR(key, api.get);
+  const { data, error, ...other } = useSWR(key, api.get);
 
   return {
     data: data?.response?.data,
     error: error?.error,
     status: data?.status || error?.status,
     isLoading: !data,
+    ...other
   };
 }
 
