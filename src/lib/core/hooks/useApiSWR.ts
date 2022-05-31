@@ -7,7 +7,7 @@ function useApiSWR(key: Key) {
 
   return {
     data: data?.response?.data,
-    error: error,
+    error: error?.error,
     status: data?.status || error?.status,
     isLoading: !data,
   };
