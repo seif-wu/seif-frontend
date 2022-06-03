@@ -12,6 +12,7 @@ import api from '../../lib/core/api';
 import useApiSWR from '../../lib/core/hooks/useApiSWR';
 import Header from '../../components/Header';
 import PageTitle from '../../components/PageTitle';
+import Resume from '../../components/Resume';
 
 const Li = ({
   title,
@@ -213,52 +214,93 @@ const About = () => {
   }
 
   return (
-    <Container maxWidth="xl" sx={{ py: 0 }}>
-      <Header />
-      <PageTitle title="关于" primaryWord="我" bgTitle="About" />
-      <Grid container spacing={2} sx={{ px: 10 }}>
-        <Grid item xs={12} md={6}>
-          <Typography
-            variant="h5"
-            gutterBottom
-            component="div"
-            sx={{
-              color: '#666',
-              pb: 2,
-              fontSize: 26,
-              fontWeight: 600,
-            }}
-          >
-            个人信息
-          </Typography>
-          <Box
-            component="ul"
-            sx={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              paddingLeft: '0',
-              listStyle: 'none',
-              marginTop: '0',
-              marginBottom: '1rem',
-            }}
-          >
-            <Li title="姓名" value={data?.name} />
-            <Li title="年龄" value={data?.age} />
-            <Li title="电话" value={data?.mobile} />
-            <Li title="邮箱" value={data?.email} />
-            <Li title="其他" width="100%" value={data?.desc} />
-          </Box>
-        </Grid>
-        <Grid container item xs={12} md={6}>
-          <Grid item xs={12} md={12}>
-            <StateCard title="工作经验" value={data?.work_experience} />
+    <>
+      <Container
+        maxWidth="xl"
+        sx={{
+          py: 0,
+          '@media print': {
+            display: 'none',
+          },
+        }}
+      >
+        <Header />
+        <PageTitle title="关于" primaryWord="我" bgTitle="About" />
+        <Grid container spacing={2} sx={{ px: 10 }}>
+          <Grid item xs={12} md={6}>
+            <Typography
+              variant="h5"
+              gutterBottom
+              component="div"
+              sx={{
+                color: '#666',
+                pb: 2,
+                fontSize: 26,
+                fontWeight: 600,
+              }}
+            >
+              个人信息
+            </Typography>
+            <Box
+              component="ul"
+              sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                paddingLeft: '0',
+                listStyle: 'none',
+                marginTop: '0',
+                marginBottom: '1rem',
+              }}
+            >
+              <Li title="姓名" value={data?.name} />
+              <Li title="年龄" value={data?.age} />
+              <Li title="电话" value={data?.mobile} />
+              <Li title="邮箱" value={data?.email} />
+              <Box
+                component="span"
+                sx={{
+                  fontWeight: 600,
+                  display: 'block',
+                  '@media (min-width: 992px)': {
+                    display: 'block',
+                  },
+                  '@media (min-width: 576px)': {
+                    display: 'inline',
+                  },
+                }}
+                dangerouslySetInnerHTML={{ __html: data?.desc }}
+              />
+              {/* <Li title="其他" width="100%" value={data?.desc} /> */}
+            </Box>
           </Grid>
-          <Grid item xs={12} md={12}>
-            <StateCard title="项目经验" value={data?.num_projects} />
+          <Grid container item xs={12} md={6}>
+            <Grid item xs={12} md={12}>
+              <StateCard title="工作经验" value={data?.work_experience} />
+            </Grid>
+            <Grid item xs={12} md={12}>
+              <StateCard title="项目经验" value={data?.num_projects} />
+            </Grid>
+            <Grid item xs={12} md={12}>
+              <Box sx={{ maxWidth: 500, textAlign: 'right' }}>
+                <Button variant="contained" onClick={() => window.print()}>
+                  下载简历
+                </Button>
+              </Box>
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+      <Box
+        sx={{
+          display: 'none',
+          '@media print': {
+            display: 'block',
+          },
+        }}
+      >
+        <Resume data={data} />
+      </Box>
+    </>
   );
 };
 
