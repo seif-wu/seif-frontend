@@ -6,12 +6,25 @@ import api from '../lib/core/api';
 import MySelfGithubCard from '../components/Index/MySelfGithubCard';
 import BlockI from '../components/BgBlock/BlockI';
 import Header from '../components/Header';
+import Loading from '../components/Loading';
 
 const Home: NextPage = () => {
   const { data: githubUserRes } = useSWR('/api/github/user', api.get);
 
   if (!githubUserRes) {
-    return <Box>loading</Box>;
+    return (
+      <Box
+        sx={{
+          height: '100vh',
+          width: '100vw',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <Loading.SpinI />
+      </Box>
+    );
   }
 
   return (
