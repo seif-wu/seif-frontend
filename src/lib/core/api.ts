@@ -4,7 +4,7 @@ import type { Axios, AxiosRequestConfig } from 'axios';
 
 const api = axios.create({
   baseURL:
-    process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:8088' : '',
+    process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:8088' : 'http://127.0.0.1:5000',
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json; charset=utf-8',
