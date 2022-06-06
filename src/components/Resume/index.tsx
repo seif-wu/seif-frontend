@@ -7,6 +7,7 @@ type ResumeDataType = {
   email: string;
   desc: string;
   age: string;
+  educational_background: string;
   work_experience: any;
   other_info: string;
   work_histories: any[]; // TODO 添加类型
@@ -82,7 +83,7 @@ const Resume = ({ data }: ResumeProps) => {
         <Li title="姓　　名" value={data?.name} />
         <Li title="年　　龄" value={data?.age} />
         <Li title="工作年限" value={`${data?.work_experience}年经验`} />
-        <Li title="求职岗位" value="前端开发" />
+        <Li title="最高学历" value={`${data?.educational_background}`} />
         <Li title="联系电话" value={data?.mobile} />
         <Li title="邮　　箱" value={data?.email} />
       </Box>
