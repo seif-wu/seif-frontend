@@ -1,5 +1,6 @@
 import useSWR from 'swr';
 import type { NextPage } from 'next';
+import { useRouter } from 'next/router';
 import { Button, Box, Container, Grid, Typography } from '@mui/material';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 import api from '../lib/core/api';
@@ -10,6 +11,7 @@ import Loading from '../components/Loading';
 
 const Home: NextPage = () => {
   const { data: githubUserRes } = useSWR('/api/github/user', api.get);
+  const router = useRouter();
 
   if (!githubUserRes) {
     return (
@@ -62,6 +64,7 @@ const Home: NextPage = () => {
                 endIcon={<KeyboardDoubleArrowDownIcon />}
                 size="large"
                 sx={{ mt: 3 }}
+                onClick={() => router.push('/about')}
               >
                 关于我
               </Button>
