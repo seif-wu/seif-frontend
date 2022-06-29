@@ -1,0 +1,11 @@
+.sandpack {
+  width: 100%;
+  padding: 60px;
+}
+
+@media (min-width: 1024px) {
+  .sandpack {
+    width: 100%;
+    max-width: max-content;
+  }
+}

@@ -1,6 +1,7 @@
-import * as React from 'react';
+import type { ReactElement, ReactNode } from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
+import type { NextPage } from 'next';
 import { v4 as uuidv4 } from 'uuid';
 import { SWRConfig } from 'swr';
 import { ThemeProvider } from '@mui/material/styles';
@@ -12,19 +13,27 @@ import createEmotionCache from '../createEmotionCache';
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
-interface MyAppProps extends AppProps {
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+interface MyAppProps extends AppPropsWithLayout {
   emotionCache?: EmotionCache;
 }
 
+export type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-  const ISSERVER = typeof window === "undefined";
+  const ISSERVER = typeof window === 'undefined';
   if (!ISSERVER) {
     const XToken = window.localStorage.getItem('XToken');
     if (!XToken) {
       window.localStorage.setItem('XToken', uuidv4());
     }
   }
+  const getLayout = Component.getLayout || ((page) => page);
 
   return (
     <CacheProvider value={emotionCache}>
@@ -39,7 +48,7 @@ export default function MyApp(props: MyAppProps) {
             refreshInterval: 30000,
           }}
         >
-          <Component {...pageProps} />
+          {getLayout(<Component {...pageProps} />)}
         </SWRConfig>
       </ThemeProvider>
     </CacheProvider>
