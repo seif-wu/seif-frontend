@@ -45,6 +45,13 @@ const SeifalUILayout = (props: SeifalUILayoutProps) => {
               <ListItemText primary="按钮 Button" />
             </ListItem>
           </ListItemButton>
+          <ListItemButton
+            onClick={() => router.push('/seifal-ui/components/divider')}
+          >
+            <ListItem>
+              <ListItemText primary="分割线 Divider" />
+            </ListItem>
+          </ListItemButton>
         </List>
       </Grid>
       <Grid item md={10}>
