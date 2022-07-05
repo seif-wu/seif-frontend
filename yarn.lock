@@ -672,23 +672,23 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.1.4.tgz#0c8b74c50f29ee44f423f7416829c0bf8bb5eb27"
   integrity sha512-LwzQKA4vzIct1zNZzBmRKI9QuNpLgTQMEjsQLf3BXuGYb3QPTP4Yjf6mkdX+X1mYttZ808QpOwAzZjv28kq7DA==
 
-"@seifal/system@^0.0.1-alpha.3":
-  version "0.0.1-alpha.3"
-  resolved "https://registry.yarnpkg.com/@seifal/system/-/system-0.0.1-alpha.3.tgz#739b38ca4cdd866870d3d35ff48c016069deafdc"
-  integrity sha512-c6XjVDT/ntDozA6qAwgbCRrBeb1JqhNz/E5rK3EJ07oK6StrkEVQO+PtQuU8bokPXxw1bYLCH2PPU6MT3PxYjw==
+"@seifal/system@^0.0.1-alpha.4":
+  version "0.0.1-alpha.4"
+  resolved "https://registry.yarnpkg.com/@seifal/system/-/system-0.0.1-alpha.4.tgz#295d18d2e7656261646702df2b9647891cd51314"
+  integrity sha512-lBMOSAwAb1lMM92RqFI9yBXelJBdkW+K406M/e3mQG4uhdXKnbH21EONC8zRjpPspzpTfFuP9ARcuHBctMNI6A==
   dependencies:
     "@emotion/react" "^11.9.3"
     lodash "^4.17.21"
     react "^18.2.0"
     react-dom "^18.2.0"
 
-"@seifal/ui@^0.0.1-alpha.3":
-  version "0.0.1-alpha.3"
-  resolved "https://registry.yarnpkg.com/@seifal/ui/-/ui-0.0.1-alpha.3.tgz#ca654c18bc33971990b80c05429ba66c24c9f82d"
-  integrity sha512-vN6daMoP19/zx9TgHtw2AYExajrGMThGQXJVfO/VOCq5GsmJvz3BbT0lL1Up1VeesHx2YkiZ7xOy/2mKHbfbbw==
+"@seifal/ui@^0.0.1-alpha.4":
+  version "0.0.1-alpha.4"
+  resolved "https://registry.yarnpkg.com/@seifal/ui/-/ui-0.0.1-alpha.4.tgz#0cfde87d8034bac6f0fd1dba9e2a340bdecb4610"
+  integrity sha512-fIo8xF+0tp77EwWpV+a7cSUCM+g44M7hPtbqVFkigo7B4numL6uJuHOSZR7qEpZ0pRk0ObBbwcLnnSHuZlTZZg==
   dependencies:
     "@emotion/styled" "^11.9.3"
-    "@seifal/system" "^0.0.1-alpha.3"
+    "@seifal/system" "^0.0.1-alpha.4"
     classnames "^2.3.1"
     react "^18.2.0"
     react-dom "^18.2.0"
