@@ -1,19 +1,10 @@
-import useSWR, { BareFetcher } from 'swr';
+import useSWR, { SWRConfiguration } from 'swr';
 import type { Key } from 'swr';
 import api from '../api';
-import { PublicConfiguration } from 'swr/dist/types';
 
 function useApiSWR(
   key: Key,
-  options?:
-    | Partial<
-        PublicConfiguration<
-          { response: any; status: number },
-          any,
-          BareFetcher<{ response: any; status: number }>
-        >
-      >
-    | undefined
+  options?: SWRConfiguration,
 ) {
   const { data, error, ...other } = useSWR(key, api.get, options);
 
