@@ -56,7 +56,7 @@ function Page() {
       <Switch disabled checked />
       <h4>Contain</h4>
       <Switch type="contain" disabled />
-      <Switch type="contain" checked />
+      <Switch type="contain" checked disabled />
     </div>
   );
 };
