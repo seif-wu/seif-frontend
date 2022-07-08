@@ -55,7 +55,8 @@ const ShowCodeBox = () => {
           }}
           customSetup={{
             dependencies: {
-              '@seifal/ui': '^0.0.1-alpha.2',
+              '@seifal/ui': '^0.0.1',
+              '@seifal/system': '^0.0.1',
             },
           }}
         >
