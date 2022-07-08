@@ -21,7 +21,7 @@
     "@seifal/ui": "^0.0.1-alpha.4",
     "axios": "^0.27.2",
     "lodash": "^4.17.21",
-    "next": "^12.1.6",
+    "next": "^12.2.1",
     "qs": "^6.10.3",
     "react": "^18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
