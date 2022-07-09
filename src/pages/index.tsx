@@ -1,141 +1,97 @@
-import { useState } from 'react';
-import { Alert, Box, Button, Grid, Snackbar, styled } from '@mui/material';
-import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import FileCopyIcon from '@mui/icons-material/FileCopy';
-import CelebrationIcon from '@mui/icons-material/Celebration';
-import Container from '../components/HomePageComponents/Container';
-import ShowCodeBox from '../components/HomePageComponents/ShowCodeBox';
+import { Box, Typography } from '@mui/material';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
+import NoteAltIcon from '@mui/icons-material/NoteAlt';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import BackgroundImage from '@/components/BackgroundImage';
+import ContainerWrapper from '@/components/ContainerWrapper';
+import SectionBlurCard from '@/components/Section/SectionBlurCard';
+import SectionContainer from '@/components/Section/SectionContainer';
+import SectionTitle from '@/components/Section/SectionTitle';
+import SeifalUiLogo from '@/components/SeifalUi/Logo';
+import TimeClock from '@/components/TimeClock';
 
-const Title = styled('h2')(({ theme }) => ({
-  fontSize: 32,
-  lineHeight: 1.5,
-  '@media (min-width: 1280px)': {
-    fontSize: 72,
-  },
-  '@media (min-width: 640px)': {
-    fontSize: 45,
-  },
-}));
+// TODO 后台可配置
+const backgroundImageSrc = 'https://cdn2.agideo.com/220708/2a3ffc0e6d76.jpg';
 
-const Home: NextPage = () => {
-  const [showSnackBar, setShowSnackBar] = useState(false);
-  const router = useRouter();
-
-  function handleCloseSnackBar() {
-    setShowSnackBar(false);
-  }
-
+const WeclomeTip = () => {
   return (
-    <Container>
-      <Grid container spacing={2} sx={{ mt: 0 }}>
-        <Grid item xs={12} md={6}>
-          <Box
-            sx={{
-              '@media (min-width: 1024px)': {
-                maxWidth: '42rem',
-                margin: '0 auto',
-              },
-            }}
-          >
-            <Title>
-              Seifal <span style={{ color: '#1677ff' }}> UI </span>
-              <br />
-              一个<span style={{ color: '#00b578' }}>简单</span>的 React 组件库
-            </Title>
-
-            <h2>快速安装</h2>
-            <h3>Yarn</h3>
-            <Box component="pre">
-              <Box
-                component="code"
-                sx={{
-                  margin: '0 .2em',
-                  padding: '.2em .4em 0.2em',
-                  fontSize: 22,
-                  background: 'rgba(150,150,150,.1)',
-                  border: '1px solid rgba(100,100,100,.2)',
-                  borderRadius: '3px',
-                }}
-              >
-                yarn add @seifal/ui @seifal/system
-              </Box>
-              <CopyToClipboard
-                onCopy={() => setShowSnackBar(true)}
-                text="yarn add @seifal/ui @seifal/system"
-              >
-                <FileCopyIcon sx={{ fontSize: 22, cursor: 'pointer' }} />
-              </CopyToClipboard>
-            </Box>
-
-            <h3>Npm</h3>
-            <Box component="pre">
-              <Box
-                component="code"
-                sx={{
-                  margin: '0 .2em',
-                  padding: '.2em .4em 0.2em',
-                  fontSize: 22,
-                  background: 'rgba(150,150,150,.1)',
-                  border: '1px solid rgba(100,100,100,.2)',
-                  borderRadius: '3px',
-                }}
-              >
-                npm install @seifal/ui @seifal/system
-              </Box>
-              <CopyToClipboard
-                onCopy={() => setShowSnackBar(true)}
-                text="npm install @seifal/ui @seifal/system"
-              >
-                <FileCopyIcon sx={{ fontSize: 22, cursor: 'pointer' }} />
-              </CopyToClipboard>
-            </Box>
-
-            <Box sx={{ mt: 4 }}>
-              <Button
-                startIcon={<GitHubIcon />}
-                variant="outlined"
-                size="large"
-                sx={{ mr: 2 }}
-                onClick={() =>
-                  window.open('https://github.com/seif-wu/seifal-ui')
-                }
-              >
-                源代码
-              </Button>
-              <Button
-                startIcon={<CelebrationIcon />}
-                variant="contained"
-                size="large"
-                onClick={() => router.push('/seifal-ui/getting-started')}
-              >
-                开始使用
-              </Button>
-            </Box>
-          </Box>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <ShowCodeBox />
-        </Grid>
-      </Grid>
-
-      <Snackbar
-        open={showSnackBar}
-        autoHideDuration={6000}
-        onClose={handleCloseSnackBar}
-      >
-        <Alert
-          onClose={handleCloseSnackBar}
-          severity="success"
-          sx={{ width: '100%' }}
-        >
-          复制成功！赶紧去安装吧～ 🎉 🎉
-        </Alert>
-      </Snackbar>
-    </Container>
+    <Box
+      sx={{
+        color: '#fff',
+        display: 'flex',
+        gap: 1,
+      }}
+    >
+      <AutoAwesomeIcon />
+      <span>欢迎来到不知名的小站</span>
+    </Box>
   );
 };
 
-export default Home;
+const HomePage = () => {
+  const router = useRouter();
+
+  return (
+    <>
+      <BackgroundImage src={backgroundImageSrc} />
+      <ContainerWrapper className="animate__animated animate__slideInUp">
+        <TimeClock />
+        <WeclomeTip />
+
+        {/* 模块一 */}
+        <SectionContainer>
+          <SectionTitle>
+            <DashboardIcon />
+            <span>这都有些什么呢?</span>
+          </SectionTitle>
+          <Box
+            sx={{
+              mt: 3,
+              display: 'flex',
+              gap: 2,
+            }}
+          >
+            <SectionBlurCard
+              sx={{ flex: '0 0 calc(100% / 8)', cursor: 'pointer' }}
+              onClick={() => router.push('/seifal-ui')}
+            >
+              <SeifalUiLogo
+                style={{ width: '100%', minWidth: 128, flex: 1 }}
+                color="#fff"
+              />
+              <Typography variant="subtitle1" sx={{ color: '#fff' }}>
+                Seifal UI 库
+              </Typography>
+            </SectionBlurCard>
+
+            <SectionBlurCard
+              sx={{ flex: '0 0 calc(100% / 8)', cursor: 'not-allowed' }}
+            >
+              <IntegrationInstructionsIcon
+                sx={{ width: '45%', minWidth: 48, color: '#fff', flex: 1 }}
+              />
+              <Typography variant="subtitle1" sx={{ color: '#fff' }}>
+                代码片段
+              </Typography>
+            </SectionBlurCard>
+
+            <SectionBlurCard
+              sx={{ flex: '0 0 calc(100% / 8)', cursor: 'not-allowed' }}
+            >
+              <NoteAltIcon
+                sx={{ width: '45%', minWidth: 48, color: '#fff', flex: 1 }}
+              />
+              <Typography variant="subtitle1" sx={{ color: '#fff' }}>
+                学习笔记
+              </Typography>
+            </SectionBlurCard>
+          </Box>
+        </SectionContainer>
+      </ContainerWrapper>
+    </>
+  );
+};
+
+export default HomePage;
