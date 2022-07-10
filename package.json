@@ -19,7 +19,6 @@
     "@mui/material": "^5.8.6",
     "@seifal/system": "^0.0.1",
     "@seifal/ui": "^0.0.1",
-    "animate.css": "^4.1.1",
     "axios": "^0.27.2",
     "dayjs": "^1.11.3",
     "lodash": "^4.17.21",
