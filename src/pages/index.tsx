@@ -50,11 +50,12 @@ const HomePage = () => {
             sx={{
               mt: 3,
               display: 'flex',
+              flexWrap: 'wrap',
               gap: 2,
             }}
           >
             <SectionBlurCard
-              sx={{ flex: '0 0 calc(100% / 8)', cursor: 'pointer' }}
+              sx={{ flex: '0 0 162px', cursor: 'pointer' }}
               onClick={() => router.push('/seifal-ui')}
             >
               <SeifalUiLogo
@@ -67,7 +68,7 @@ const HomePage = () => {
             </SectionBlurCard>
 
             <SectionBlurCard
-              sx={{ flex: '0 0 calc(100% / 8)', cursor: 'not-allowed' }}
+              sx={{ flex: '0 0 162px', cursor: 'not-allowed' }}
             >
               <IntegrationInstructionsIcon
                 sx={{ width: '45%', minWidth: 48, color: '#fff', flex: 1 }}
@@ -78,7 +79,7 @@ const HomePage = () => {
             </SectionBlurCard>
 
             <SectionBlurCard
-              sx={{ flex: '0 0 calc(100% / 8)', cursor: 'not-allowed' }}
+              sx={{ flex: '0 0 162px', cursor: 'not-allowed', minHeight: 156 }}
             >
               <NoteAltIcon
                 sx={{ width: '45%', minWidth: 48, color: '#fff', flex: 1 }}

@@ -12,6 +12,9 @@ const ContainerWrapperBase = styled.div(() => ({
   minHeight: '80vh',
   padding: '80px',
   paddingTop: '0px',
+  "@media (max-width: 420px)": {
+    padding: '32px',
+  }
 }));
 
 const ContainerWrapper = (props: ContainerWrapperProps) => {
