@@ -1,0 +1,19 @@
+.fade {
+  opacity: 0;
+}
+
+.fade-entering {
+  opacity: 0.5;
+}
+
+.fade-entered {
+  opacity: 1;
+}
+
+.fade-exiting {
+  opacity: 1;
+}
+
+.fade-exited {
+  opacity: 0;
+}

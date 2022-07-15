@@ -5,10 +5,11 @@ export interface SectionBlurCardProps
   extends HtmlHTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
   sx?: SxProps<Theme>;
+  disabled?: boolean;
 }
 
 const SectionBlurCard = (props: SectionBlurCardProps) => {
-  const { children, sx, ...rest } = props;
+  const { children, sx, disabled, ...rest } = props;
   return (
     <Box
       sx={{
@@ -22,6 +23,7 @@ const SectionBlurCard = (props: SectionBlurCardProps) => {
         alignItems: 'center',
         justifyContent: 'center',
         p: 2,
+        cursor: disabled ? 'not-allowed' : 'pointer',
         ...sx,
       }}
       {...rest}

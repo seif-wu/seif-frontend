@@ -1,3 +1,4 @@
+import { animated, useSpring } from 'react-spring';
 import styled from '@emotion/styled';
 
 export interface BackgroundImageProps {
@@ -8,9 +9,9 @@ const BackgroundBox = styled.div(() => {
   return {
     width: '100%',
     height: '100%',
-    left: 0,
     overflow: 'hidden',
     position: 'fixed',
+    left: 0,
     top: 0,
     zIndex: -1,
   };
@@ -30,11 +31,21 @@ const BackgroundImageBox = styled.div<BackgroundImageProps>((props) => {
 
 const BackgroundImage = (props: BackgroundImageProps) => {
   const { src } = props;
+  const springStyles = useSpring({
+    from: {
+      opacity: 0,
+    },
+    to: {
+      opacity: 1,
+    },
+  });
 
   return (
-    <BackgroundBox className="animate__animated animate__fadeIn">
-      <BackgroundImageBox src={src} />
-    </BackgroundBox>
+    <animated.div style={springStyles}>
+      <BackgroundBox>
+        <BackgroundImageBox src={src} />
+      </BackgroundBox>
+    </animated.div>
   );
 };
 
