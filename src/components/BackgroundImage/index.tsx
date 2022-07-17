@@ -25,7 +25,7 @@ const BackgroundImageBox = styled.div<BackgroundImageProps>((props) => {
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    transition: 'transform 250ms',
+    transition: 'transform 250ms, background-image 500ms',
   };
 });
 

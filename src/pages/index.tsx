@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { Box, Typography } from '@mui/material';
 import {
+  Info as InfoIcon,
   Dashboard,
   NoteAlt,
   IntegrationInstructions,
@@ -8,10 +9,10 @@ import {
 import BackgroundImage from '@/components/BackgroundImage';
 import ContainerWrapper from '@/components/ContainerWrapper';
 import {
+  SectionBgCard,
   SectionBlurCard,
   SectionContainer,
   SectionFlexBox,
-  SectionTitle,
 } from '@/components/Section';
 import SeifalUiLogo from '@/components/SeifalUi/Logo';
 import TimeClock from '@/components/TimeClock';
@@ -56,11 +57,7 @@ const HomePage = () => {
         <WeclomeTip />
 
         {/* 模块一 */}
-        <SectionContainer>
-          <SectionTitle>
-            <Dashboard />
-            <span>都有些什么?</span>
-          </SectionTitle>
+        <SectionContainer title="都有些什么?" icon={<Dashboard />}>
           <SectionFlexBox>
             {dashboardList.map((item) => (
               <SectionBlurCard
@@ -76,6 +73,15 @@ const HomePage = () => {
               </SectionBlurCard>
             ))}
           </SectionFlexBox>
+        </SectionContainer>
+
+        {/* 模块二 */}
+        <SectionContainer title="关于" icon={<InfoIcon />}>
+          <SectionBgCard
+            title="Leetcode"
+            subTitle="统计"
+            background="https://cdn2.agideo.com/220716/e203286fa255.jpg"
+          />
         </SectionContainer>
       </ContainerWrapper>
     </>

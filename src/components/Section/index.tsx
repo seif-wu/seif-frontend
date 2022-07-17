@@ -9,3 +9,6 @@ export * from './SectionFlexBox';
 
 export { default as SectionTitle } from './SectionTitle';
 export * from './SectionTitle';
+
+export { default as SectionBgCard } from './SectionBgCard';
+export * from './SectionBgCard';
