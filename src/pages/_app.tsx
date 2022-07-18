@@ -46,6 +46,8 @@ export default function MyApp(props: MyAppProps) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
         />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <title>Seifal</title>
       </Head>
       <SeifalThemeProvider theme={seifalTheme}>
         <ThemeProvider theme={theme}>
