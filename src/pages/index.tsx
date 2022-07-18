@@ -13,6 +13,7 @@ import {
   SectionBlurCard,
   SectionContainer,
   SectionFlexBox,
+  SectionFlexItemBox,
 } from '@/components/Section';
 import SeifalUiLogo from '@/components/SeifalUi/Logo';
 import TimeClock from '@/components/TimeClock';
@@ -29,12 +30,7 @@ const HomePage = () => {
   const dashboardList = [
     {
       title: 'Seifal UI 库',
-      icon: (
-        <SeifalUiLogo
-          style={{ width: '100%', minWidth: 128, flex: 1 }}
-          color="#fff"
-        />
-      ),
+      icon: <SeifalUiLogo style={{ width: '100%', flex: 1 }} color="#fff" />,
       onClick: () => router.push('/seifal-ui'),
     },
     {
@@ -60,17 +56,18 @@ const HomePage = () => {
         <SectionContainer title="都有些什么?" icon={<Dashboard />}>
           <SectionFlexBox>
             {dashboardList.map((item) => (
-              <SectionBlurCard
-                key={item.title}
-                sx={{ flex: '0 0 162px' }}
-                onClick={() => !item.disabled && item.onClick?.()}
-                disabled={item.disabled}
-              >
-                {item.icon}
-                <Typography variant="subtitle1" sx={{ color: '#fff' }}>
-                  {item.title}
-                </Typography>
-              </SectionBlurCard>
+              <SectionFlexItemBox key={item.title}>
+                <SectionBlurCard
+                  sx={{ height: '100%' }}
+                  onClick={() => !item.disabled && item.onClick?.()}
+                  disabled={item.disabled}
+                >
+                  {item.icon}
+                  <Typography variant="subtitle1" sx={{ color: '#fff' }}>
+                    {item.title}
+                  </Typography>
+                </SectionBlurCard>
+              </SectionFlexItemBox>
             ))}
           </SectionFlexBox>
         </SectionContainer>

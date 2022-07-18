@@ -15,6 +15,8 @@ const SectionFlexBox = (props: SectionFlexBoxProps) => {
     <Box
       sx={{
         mt: 3,
+        // ml: -1,
+        // mr: -1,
         display: 'flex',
         flexWrap: 'wrap',
         gap: 2,
