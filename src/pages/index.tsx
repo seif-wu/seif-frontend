@@ -24,7 +24,7 @@ const iconSx = { width: '45%', minWidth: 48, color: '#fff', flex: 1 };
 const HomePage = () => {
   const router = useRouter();
   // TODO 后台可配置
-  const backgroundImageSrc = 'https://cdn2.agideo.com/220708/2a3ffc0e6d76.jpg';
+  const backgroundImageSrc = 'https://images.unsplash.com/photo-1515063312047-b40b86035e20?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80';
 
   // 都有些什么? 列表
   const dashboardList = [
