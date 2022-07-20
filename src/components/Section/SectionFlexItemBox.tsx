@@ -5,14 +5,23 @@ export interface SectionFlexItemBoxProps
   extends HtmlHTMLAttributes<HTMLDivElement> {
   children?: ReactNode;
   sx?: SxProps<Theme>;
+  span?: number;
 }
 
 const SectionFlexItemBox = (props: SectionFlexItemBoxProps) => {
-  const { children, sx, ...rest } = props;
+  const { children, sx, span, ...rest } = props;
+
+  let width = '100%';
+  if (span === 4) {
+    width = '24%';
+  }
+
   return (
     <Box
+      className="section-flex-item"
       sx={{
-        flex: '0 0 162px',
+        flex: span ? `0 0 calc(${width} - 8px)` : '0 0 162px',
+        ...sx,
         '@media (max-width: 420px)': {
           flex: '0 0 calc(50% - 8px)',
         },

@@ -6,10 +6,12 @@ export interface SectionFlexBoxProps
   children?: ReactNode;
   sx?: SxProps<Theme>;
   disabled?: boolean;
+  hoverAnimation?: 'other-blur',
+  itemClassNames?: string;
 }
 
 const SectionFlexBox = (props: SectionFlexBoxProps) => {
-  const { children, sx, disabled, ...rest } = props;
+  const { children, sx, hoverAnimation, itemClassNames, disabled, ...rest } = props;
 
   return (
     <Box
@@ -20,6 +22,11 @@ const SectionFlexBox = (props: SectionFlexBoxProps) => {
         display: 'flex',
         flexWrap: 'wrap',
         gap: 2,
+        ...(hoverAnimation === 'other-blur' && {
+          [`&:hover .section-bg-card:not(:hover)  ${itemClassNames}`]: {
+            filter: 'brightness(0.5) saturate(0) contrast(1.2) blur(20px)'
+          },
+        }),
       }}
       {...rest}
     >

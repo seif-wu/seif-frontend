@@ -24,15 +24,6 @@ const SVGComponent = (props) => {
         fillOpacity={0}
         className="background"
       />
-      <rect
-        x={0}
-        y={0}
-        width="100%"
-        height="100%"
-        fill="url(#watermark)"
-        fillOpacity={1}
-        className="watermarklayer"
-      />
       <g
         fill={color}
         className="iconlinesvg-g iconlinesvg"
